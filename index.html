@@ -78,7 +78,7 @@ nav {
   gap:12px;
   text-decoration:none;
 }
-.nav-logo img{width:100px;height:100px;border-radius:50%;border:1px solid var(--border)}
+.nav-logo img{width:48px;height:48px;border-radius:50%;border:1px solid var(--border)}
 .nav-logo-text{font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:700;color:var(--white)}
 .nav-logo-text span{color:var(--neon)}
 
@@ -86,6 +86,7 @@ nav {
   display:flex;
   gap:28px;
   list-style:none;
+  align-items:center;
 }
 .nav-links a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.05em;transition:color .2s}
 .nav-links a:hover{color:var(--neon)}
@@ -592,20 +593,16 @@ nav {
 .cta-box::before {
   content:'';
   position:absolute;
-  width:300px;
-  height:300px;
+  width:300px;height:300px;
   background:radial-gradient(circle,rgba(0,229,255,0.15) 0%,transparent 70%);
-  top:-100px;
-  left:-100px;
+  top:-100px;left:-100px;
 }
 .cta-box::after {
   content:'';
   position:absolute;
-  width:300px;
-  height:300px;
+  width:300px;height:300px;
   background:radial-gradient(circle,rgba(0,102,255,0.1) 0%,transparent 70%);
-  bottom:-100px;
-  right:-100px;
+  bottom:-100px;right:-100px;
 }
 .cta-box h2{font-family:'Orbitron',monospace;font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--white);margin-bottom:16px;position:relative;z-index:1}
 .cta-box p{font-size:1rem;opacity:.75;margin-bottom:40px;position:relative;z-index:1}
@@ -632,25 +629,17 @@ footer {
 .footer-brand p{font-size:.88rem;line-height:1.7;opacity:.6;margin-bottom:20px}
 .social-links{display:flex;gap:12px}
 .social-link {
-  width:36px;
-  height:36px;
-  border-radius:8px;
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-size:.9rem;
+  width:36px;height:36px;border-radius:8px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:.9rem;
   transition:border-color .3s,background .3s;
 }
 .social-link:hover{border-color:var(--neon);background:rgba(0,229,255,0.08)}
-
 .footer-col h5{font-family:'Orbitron',monospace;font-size:.8rem;color:var(--white);margin-bottom:20px;letter-spacing:.1em}
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:10px}
 .footer-col ul li a{font-size:.88rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s}
 .footer-col ul li a:hover{opacity:1;color:var(--neon)}
-
 .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:.82rem;opacity:.5}
 .footer-bottom a{color:var(--neon);text-decoration:none;font-size:.82rem;opacity:.7}
@@ -675,9 +664,7 @@ section{position:relative;z-index:1}
 .icon-doc{background:rgba(239,68,68,0.1);color:#ef4444}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
-}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:40px}}
 @media(max-width:640px){
   .nav-links{display:none}
   .hamburger{display:flex}
@@ -695,7 +682,7 @@ section{position:relative;z-index:1}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* FLOATING LABEL */
+/* FLOATING WhatsApp BADGE */
 .floating-badge {
   position:fixed;
   bottom:24px;
@@ -716,6 +703,391 @@ section{position:relative;z-index:1}
   animation:fadeUp .8s 1s ease both;
 }
 .floating-badge:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,229,255,0.5)}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOWGEN AI — PREMIUM CHAT WIDGET  (fully revamped)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Toggle Button ── */
+#fg-toggle {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #0a1628, #0d1f3c);
+  border: 1.5px solid rgba(0,229,255,0.35);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 0 rgba(0,229,255,0),
+    0 0 24px rgba(0,229,255,0.3),
+    0 6px 20px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(0,229,255,0.1);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, border-color .3s;
+  animation: fgRingPulse 3s ease-in-out infinite;
+}
+#fg-toggle:hover {
+  transform: scale(1.12);
+  border-color: rgba(0,229,255,0.7);
+  box-shadow:
+    0 0 0 8px rgba(0,229,255,0.06),
+    0 0 32px rgba(0,229,255,0.55),
+    0 8px 24px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(0,229,255,0.15);
+}
+#fg-toggle.open {
+  animation: none;
+  border-color: rgba(0,229,255,0.6);
+  box-shadow: 0 0 28px rgba(0,229,255,0.4), 0 6px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes fgRingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,255,0), 0 0 24px rgba(0,229,255,0.3), 0 6px 20px rgba(0,0,0,0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(0,229,255,0.06), 0 0 30px rgba(0,229,255,0.45), 0 6px 20px rgba(0,0,0,0.5); }
+}
+
+/* Robot SVG icon */
+.fg-robot-icon { transition: opacity .2s, transform .2s; }
+.fg-close-icon { display:none; transition: opacity .2s; }
+#fg-toggle.open .fg-robot-icon { display:none; }
+#fg-toggle.open .fg-close-icon { display:block; }
+
+/* Notification badge */
+.fg-notif-badge {
+  position: absolute;
+  top: -3px; right: -3px;
+  width: 20px; height: 20px;
+  background: linear-gradient(135deg, #ff3b5c, #ff6b35);
+  border-radius: 50%;
+  border: 2px solid #020c1b;
+  font-size: 10px; font-weight: 800; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  animation: fgBadgePop .4s cubic-bezier(.34,1.56,.64,1) both;
+  box-shadow: 0 0 10px rgba(255,59,92,0.5);
+}
+@keyframes fgBadgePop { from{transform:scale(0) rotate(-20deg)} to{transform:scale(1) rotate(0)} }
+
+/* ── Chat Window ── */
+#fg-window {
+  position: fixed;
+  bottom: 168px;
+  right: 24px;
+  width: 370px;
+  max-height: 560px;
+  background: linear-gradient(160deg, #050e20 0%, #030a17 100%);
+  border: 1px solid rgba(0,229,255,0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 9998;
+  box-shadow:
+    0 0 0 1px rgba(0,229,255,0.05),
+    0 0 60px rgba(0,102,255,0.18),
+    0 30px 80px rgba(0,0,0,0.7);
+  overflow: hidden;
+  transform: scale(0.88) translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: bottom right;
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .25s ease;
+}
+#fg-window.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+
+/* Subtle scanline texture overlay */
+#fg-window::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,229,255,0.008) 3px,
+    rgba(0,229,255,0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.fg-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 18px 16px;
+  background: linear-gradient(135deg, rgba(0,102,255,0.22), rgba(0,229,255,0.08));
+  border-bottom: 1px solid rgba(0,229,255,0.12);
+  flex-shrink: 0;
+}
+
+/* Animated robot head avatar */
+.fg-header-avatar {
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+  position: relative;
+}
+.fg-header-avatar svg {
+  width: 42px; height: 42px;
+  filter: drop-shadow(0 0 8px rgba(0,229,255,0.5));
+}
+/* Eye blink animation */
+.fg-eye-l, .fg-eye-r {
+  animation: fgBlink 4s ease-in-out infinite;
+}
+.fg-eye-r { animation-delay: .08s; }
+@keyframes fgBlink {
+  0%,92%,100% { transform: scaleY(1); }
+  95%          { transform: scaleY(0.1); }
+}
+/* Antenna pulse */
+.fg-antenna-dot { animation: fgAntennaPulse 1.8s ease-in-out infinite; }
+@keyframes fgAntennaPulse {
+  0%,100% { opacity:1; r:2.5; }
+  50%     { opacity:.3; r:1.5; }
+}
+
+.fg-header-info { flex: 1; min-width: 0; }
+.fg-header-name {
+  font-family: 'Orbitron', monospace;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .06em;
+  margin-bottom: 3px;
+}
+.fg-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .7rem;
+  color: rgba(0,229,255,0.65);
+}
+.fg-status-dot {
+  width: 6px; height: 6px;
+  background: #00e676;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,230,118,0.7);
+  animation: fgStatusPulse 2s ease-in-out infinite;
+}
+@keyframes fgStatusPulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%     { opacity:.5; transform:scale(.75); }
+}
+
+.fg-header-actions { display:flex; gap:4px; align-items:center; }
+.fg-action-btn {
+  background: none;
+  border: none;
+  color: rgba(0,229,255,0.4);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: color .2s, background .2s;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.fg-action-btn:hover { color: var(--neon, #00e5ff); background: rgba(0,229,255,0.08); }
+
+/* ── Suggested prompts ── */
+.fg-suggestions {
+  position: relative; z-index: 1;
+  padding: 10px 14px 0;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.fg-suggestion-chip {
+  background: rgba(0,229,255,0.05);
+  border: 1px solid rgba(0,229,255,0.18);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: .7rem;
+  color: rgba(0,229,255,0.75);
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .15s;
+  font-family: 'Exo 2', sans-serif;
+  white-space: nowrap;
+}
+.fg-suggestion-chip:hover {
+  background: rgba(0,229,255,0.12);
+  border-color: rgba(0,229,255,0.5);
+  color: #00e5ff;
+  transform: translateY(-1px);
+}
+
+/* ── Messages ── */
+#fg-messages {
+  position: relative; z-index: 1;
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+#fg-messages::-webkit-scrollbar { width: 4px; }
+#fg-messages::-webkit-scrollbar-track { background: transparent; }
+#fg-messages::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.15); border-radius: 4px; }
+
+.fg-msg {
+  display: flex;
+  gap: 8px;
+  animation: fgMsgIn .28s cubic-bezier(.34,1.4,.64,1) both;
+  max-width: 88%;
+}
+@keyframes fgMsgIn { from{opacity:0;transform:translateY(12px) scale(.97)} to{opacity:1;transform:none} }
+.fg-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+.fg-bubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: .86rem;
+  line-height: 1.65;
+  word-break: break-word;
+}
+.fg-msg.bot .fg-bubble {
+  background: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.14);
+  color: #c8e6f5;
+  border-radius: 4px 16px 16px 16px;
+}
+.fg-msg.user .fg-bubble {
+  background: linear-gradient(135deg, #0055dd, #0099ff);
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+  box-shadow: 0 4px 14px rgba(0,102,255,0.25);
+}
+
+/* Mini robot avatar in message stream */
+.fg-msg-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.fg-msg.bot .fg-msg-avatar {
+  background: linear-gradient(145deg, #0a1628, #0d1f3c);
+  border: 1px solid rgba(0,229,255,0.25);
+}
+.fg-msg.user .fg-msg-avatar {
+  background: rgba(0,102,255,0.2);
+  border: 1px solid rgba(0,102,255,0.3);
+  font-size: .75rem;
+  color: rgba(0,229,255,0.8);
+}
+.fg-msg-avatar svg { width: 18px; height: 18px; }
+
+/* Typing indicator */
+.fg-typing .fg-bubble {
+  display: flex; align-items: center; gap: 5px;
+  padding: 12px 16px;
+}
+.fg-dot-anim {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(0,229,255,0.55);
+  animation: fgBounce 1.2s ease-in-out infinite;
+}
+.fg-dot-anim:nth-child(2) { animation-delay: .18s; }
+.fg-dot-anim:nth-child(3) { animation-delay: .36s; }
+@keyframes fgBounce {
+  0%,80%,100% { transform:scale(.65); opacity:.4; }
+  40%         { transform:scale(1.1); opacity:1; }
+}
+
+/* Timestamp */
+.fg-timestamp {
+  font-size: .64rem;
+  color: rgba(200,230,245,0.3);
+  align-self: flex-end;
+  margin-bottom: 2px;
+  padding: 0 4px;
+}
+.fg-msg.user .fg-timestamp { order: -1; }
+
+/* ── Input row ── */
+.fg-input-row {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(0,229,255,0.1);
+  background: rgba(2,8,18,0.6);
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+#fg-input {
+  flex: 1;
+  background: rgba(0,229,255,0.04);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #c8e6f5;
+  font-family: 'Exo 2', sans-serif;
+  font-size: .875rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  resize: none;
+  max-height: 100px;
+  line-height: 1.5;
+}
+#fg-input::placeholder { color: rgba(200,230,245,0.3); }
+#fg-input:focus {
+  border-color: rgba(0,229,255,0.4);
+  box-shadow: 0 0 0 3px rgba(0,229,255,0.06);
+}
+
+#fg-send {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0066ff, #00ccff);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: box-shadow .2s, transform .2s, opacity .2s;
+  box-shadow: 0 2px 12px rgba(0,102,255,0.3);
+}
+#fg-send:hover {
+  box-shadow: 0 4px 20px rgba(0,229,255,0.5);
+  transform: scale(1.06);
+}
+#fg-send:disabled { opacity: .35; cursor: not-allowed; transform: none; box-shadow: none; }
+#fg-send svg {
+  width: 16px; height: 16px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fg-footer-note {
+  position: relative; z-index: 1;
+  text-align: center;
+  font-size: .65rem;
+  color: rgba(200,230,245,0.2);
+  padding: 4px 14px 10px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile ── */
+@media(max-width:420px){
+  #fg-window { right:10px; left:10px; width:auto; bottom:158px; }
+  #fg-toggle { right:16px; bottom:86px; }
+}
 </style>
 </head>
 <body>
@@ -729,6 +1101,7 @@ section{position:relative;z-index:1}
 <nav>
   <a href="#" class="nav-logo">
     <img src="images/flowgenai.png" alt="FlowGen AI Logo" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Flow<span>Gen</span> AI</span>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -754,9 +1127,9 @@ section{position:relative;z-index:1}
 <section class="hero">
   <div class="hero-badge">
     <span class="badge-dot"></span>
-    <!-- AI-Powered Business Automation -->
+    AI-Powered Business Automation
   </div>
-  <img src="/mnt/user-data/uploads/1777306081356.png" alt="FlowGen AI" class="hero-logo" onerror="this.style.display='none'">
+  <img src="images/flowgenai.png" alt="FlowGen AI" class="hero-logo" onerror="this.style.display='none'">
   <h1>Automate Your<br><span>Business Workflows</span></h1>
   <p class="hero-sub">AI Agent Solutions</p>
   <p class="hero-desc">FlowGen AI builds intelligent automation agents that eliminate manual work, 24/7 — from WhatsApp to CRM, voice to lead management. Let AI run your business while you scale.</p>
@@ -792,91 +1165,18 @@ section{position:relative;z-index:1}
     <p>End-to-end automation agents for every channel and workflow your business relies on</p>
   </div>
   <div class="services-grid">
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-wa">💬</div>
-      <h3>WhatsApp Automation</h3>
-      <p>Intelligent WhatsApp agents that handle customer queries, send order updates, qualify leads, and run campaigns — all automatically, 24/7.</p>
-      <span class="service-tag">Messaging</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-email">📧</div>
-      <h3>Email Automation</h3>
-      <p>AI-drafted outreach, follow-up sequences, inbox triage, and smart reply generation — your email runs on autopilot.</p>
-      <span class="service-tag">Communication</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-chat">🤖</div>
-      <h3>AI Chatbot</h3>
-      <p>Deploy smart chatbots on your website or app. Answer FAQs, capture leads, book appointments, and guide users — instantly.</p>
-      <span class="service-tag">Support</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-lead">🎯</div>
-      <h3>Lead Management Agent</h3>
-      <p>Automatically capture, score, nurture, and route leads from any source. Never lose a hot prospect again.</p>
-      <span class="service-tag">Sales</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-voice">📞</div>
-      <h3>Voice Calling Agent</h3>
-      <p>AI voice agents that make and receive calls, qualify prospects, collect data, and schedule appointments — sounding natural.</p>
-      <span class="service-tag">Calls</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-crm">⚙️</div>
-      <h3>CRM Workflow Agent</h3>
-      <p>Sync data, update records, trigger pipelines, assign tasks, and generate reports inside your CRM — zero manual entry.</p>
-      <span class="service-tag">Operations</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-tg">✈️</div>
-      <h3>Telegram Agent</h3>
-      <p>Automate support, notifications, community management, and sales through Telegram bots powered by AI.</p>
-      <span class="service-tag">Messaging</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-insta">📸</div>
-      <h3>Instagram Agent</h3>
-      <p>Auto-reply to DMs, comments, and story replies. Nurture followers, run giveaways, and close sales on Instagram.</p>
-      <span class="service-tag">Social</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-sms">📱</div>
-      <h3>SMS Automation</h3>
-      <p>Bulk SMS campaigns, appointment reminders, OTP flows, and two-way conversational SMS powered by AI.</p>
-      <span class="service-tag">Messaging</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-social">🔗</div>
-      <h3>Social Media Agent</h3>
-      <p>Auto-schedule, publish, and respond across Facebook, LinkedIn, Twitter/X, and more from a single AI agent.</p>
-      <span class="service-tag">Marketing</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-ecom">🛒</div>
-      <h3>E-Commerce Automation</h3>
-      <p>Order confirmations, abandoned cart recovery, review requests, and inventory alerts — fully automated.</p>
-      <span class="service-tag">E-Commerce</span>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon icon-doc">📄</div>
-      <h3>Document & Data Agent</h3>
-      <p>Extract data from forms, invoices, and PDFs. Auto-fill spreadsheets, generate reports, and trigger workflows.</p>
-      <span class="service-tag">Productivity</span>
-    </div>
-
+    <div class="service-card reveal"><div class="service-icon icon-wa">💬</div><h3>WhatsApp Automation</h3><p>Intelligent WhatsApp agents that handle customer queries, send order updates, qualify leads, and run campaigns — all automatically, 24/7.</p><span class="service-tag">Messaging</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-email">📧</div><h3>Email Automation</h3><p>AI-drafted outreach, follow-up sequences, inbox triage, and smart reply generation — your email runs on autopilot.</p><span class="service-tag">Communication</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-chat">🤖</div><h3>AI Chatbot</h3><p>Deploy smart chatbots on your website or app. Answer FAQs, capture leads, book appointments, and guide users — instantly.</p><span class="service-tag">Support</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-lead">🎯</div><h3>Lead Management Agent</h3><p>Automatically capture, score, nurture, and route leads from any source. Never lose a hot prospect again.</p><span class="service-tag">Sales</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-voice">📞</div><h3>Voice Calling Agent</h3><p>AI voice agents that make and receive calls, qualify prospects, collect data, and schedule appointments — sounding natural.</p><span class="service-tag">Calls</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-crm">⚙️</div><h3>CRM Workflow Agent</h3><p>Sync data, update records, trigger pipelines, assign tasks, and generate reports inside your CRM — zero manual entry.</p><span class="service-tag">Operations</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-tg">✈️</div><h3>Telegram Agent</h3><p>Automate support, notifications, community management, and sales through Telegram bots powered by AI.</p><span class="service-tag">Messaging</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-insta">📸</div><h3>Instagram Agent</h3><p>Auto-reply to DMs, comments, and story replies. Nurture followers, run giveaways, and close sales on Instagram.</p><span class="service-tag">Social</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-sms">📱</div><h3>SMS Automation</h3><p>Bulk SMS campaigns, appointment reminders, OTP flows, and two-way conversational SMS powered by AI.</p><span class="service-tag">Messaging</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-social">🔗</div><h3>Social Media Agent</h3><p>Auto-schedule, publish, and respond across Facebook, LinkedIn, Twitter/X, and more from a single AI agent.</p><span class="service-tag">Marketing</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-ecom">🛒</div><h3>E-Commerce Automation</h3><p>Order confirmations, abandoned cart recovery, review requests, and inventory alerts — fully automated.</p><span class="service-tag">E-Commerce</span></div>
+    <div class="service-card reveal"><div class="service-icon icon-doc">📄</div><h3>Document & Data Agent</h3><p>Extract data from forms, invoices, and PDFs. Auto-fill spreadsheets, generate reports, and trigger workflows.</p><span class="service-tag">Productivity</span></div>
   </div>
 </section>
 
@@ -889,26 +1189,10 @@ section{position:relative;z-index:1}
       <p>From discovery to deployment, we build and launch your automation in days — not months</p>
     </div>
     <div class="steps">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <h4>Discovery Call</h4>
-        <p>We map your current workflow, identify bottlenecks, and define automation goals together.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">02</div>
-        <h4>Agent Design</h4>
-        <p>Our team architects the AI agent pipeline tailored to your tools, channels, and business logic.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">03</div>
-        <h4>Build & Test</h4>
-        <p>We build, test, and refine your automation agents with real data — ensuring accuracy and reliability.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">04</div>
-        <h4>Deploy & Scale</h4>
-        <p>Go live in days. We monitor, optimize, and scale your agents as your business grows.</p>
-      </div>
+      <div class="step reveal"><div class="step-num">01</div><h4>Discovery Call</h4><p>We map your current workflow, identify bottlenecks, and define automation goals together.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h4>Agent Design</h4><p>Our team architects the AI agent pipeline tailored to your tools, channels, and business logic.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h4>Build & Test</h4><p>We build, test, and refine your automation agents with real data — ensuring accuracy and reliability.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h4>Deploy & Scale</h4><p>Go live in days. We monitor, optimize, and scale your agents as your business grows.</p></div>
     </div>
   </div>
 </section>
@@ -921,36 +1205,12 @@ section{position:relative;z-index:1}
     <p>We don't sell software — we deliver outcomes. Your automation, your results.</p>
   </div>
   <div class="why-grid">
-    <div class="why-card reveal">
-      <div class="why-icon">⚡</div>
-      <h4>Fast Deployment</h4>
-      <p>Most automations go live within 3–7 days. No long projects, no wasted months.</p>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🔌</div>
-      <h4>Integrates Everywhere</h4>
-      <p>Works with your existing tools — Zoho, HubSpot, Notion, Sheets, Zapier, and 200+ apps.</p>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🛡️</div>
-      <h4>Secure & Reliable</h4>
-      <p>Enterprise-grade security. Your data stays yours. 99.9% uptime SLA on all agents.</p>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🎛️</div>
-      <h4>Fully Custom</h4>
-      <p>No cookie-cutter bots. Every agent is built around your exact workflow and brand voice.</p>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">📊</div>
-      <h4>Analytics Dashboard</h4>
-      <p>Track performance, conversion rates, and ROI in real time with live reporting.</p>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🤝</div>
-      <h4>Dedicated Support</h4>
-      <p>A real team behind every deployment. Monthly check-ins and ongoing optimization included.</p>
-    </div>
+    <div class="why-card reveal"><div class="why-icon">⚡</div><h4>Fast Deployment</h4><p>Most automations go live within 3–7 days. No long projects, no wasted months.</p></div>
+    <div class="why-card reveal"><div class="why-icon">🔌</div><h4>Integrates Everywhere</h4><p>Works with your existing tools — Zoho, HubSpot, Notion, Sheets, Zapier, and 200+ apps.</p></div>
+    <div class="why-card reveal"><div class="why-icon">🛡️</div><h4>Secure & Reliable</h4><p>Enterprise-grade security. Your data stays yours. 99.9% uptime SLA on all agents.</p></div>
+    <div class="why-card reveal"><div class="why-icon">🎛️</div><h4>Fully Custom</h4><p>No cookie-cutter bots. Every agent is built around your exact workflow and brand voice.</p></div>
+    <div class="why-card reveal"><div class="why-icon">📊</div><h4>Analytics Dashboard</h4><p>Track performance, conversion rates, and ROI in real time with live reporting.</p></div>
+    <div class="why-card reveal"><div class="why-icon">🤝</div><h4>Dedicated Support</h4><p>A real team behind every deployment. Monthly check-ins and ongoing optimization included.</p></div>
   </div>
 </section>
 
@@ -963,22 +1223,14 @@ section{position:relative;z-index:1}
       <p>FlowGen AI serves businesses across every vertical — if you have workflows, we automate them</p>
     </div>
     <div class="industry-chips reveal">
-      <div class="chip">🏥 Healthcare</div>
-      <div class="chip">🏠 Real Estate</div>
-      <div class="chip">🛒 E-Commerce</div>
-      <div class="chip">📚 Education</div>
-      <div class="chip">🏦 Finance & Banking</div>
-      <div class="chip">🍕 Restaurants & Food</div>
-      <div class="chip">🚗 Automotive</div>
-      <div class="chip">💼 Consulting & Agencies</div>
-      <div class="chip">💅 Beauty & Wellness</div>
-      <div class="chip">🏨 Hospitality & Travel</div>
-      <div class="chip">⚖️ Legal Services</div>
-      <div class="chip">🔧 Home Services</div>
-      <div class="chip">📦 Logistics</div>
-      <div class="chip">🎓 Coaching & Training</div>
-      <div class="chip">🛍️ Retail</div>
-      <div class="chip">🖥️ SaaS & Tech</div>
+      <div class="chip">🏥 Healthcare</div><div class="chip">🏠 Real Estate</div>
+      <div class="chip">🛒 E-Commerce</div><div class="chip">📚 Education</div>
+      <div class="chip">🏦 Finance & Banking</div><div class="chip">🍕 Restaurants & Food</div>
+      <div class="chip">🚗 Automotive</div><div class="chip">💼 Consulting & Agencies</div>
+      <div class="chip">💅 Beauty & Wellness</div><div class="chip">🏨 Hospitality & Travel</div>
+      <div class="chip">⚖️ Legal Services</div><div class="chip">🔧 Home Services</div>
+      <div class="chip">📦 Logistics</div><div class="chip">🎓 Coaching & Training</div>
+      <div class="chip">🛍️ Retail</div><div class="chip">🖥️ SaaS & Tech</div>
     </div>
   </div>
 </section>
@@ -991,7 +1243,6 @@ section{position:relative;z-index:1}
     <p>Choose the plan that fits your automation needs. No hidden fees.</p>
   </div>
   <div class="pricing-grid">
-
     <div class="price-card reveal">
       <p class="price-name">STARTER</p>
       <p class="price-amount">₹9,999<span>/mo</span></p>
@@ -1005,7 +1256,6 @@ section{position:relative;z-index:1}
       </ul>
       <a href="#contact" class="price-cta price-cta-outline">Get Started →</a>
     </div>
-
     <div class="price-card featured reveal">
       <div class="price-badge">Most Popular</div>
       <p class="price-name">GROWTH</p>
@@ -1021,7 +1271,6 @@ section{position:relative;z-index:1}
       </ul>
       <a href="#contact" class="price-cta price-cta-fill">Start Growing →</a>
     </div>
-
     <div class="price-card reveal">
       <p class="price-name">ENTERPRISE</p>
       <p class="price-amount">Custom</p>
@@ -1036,7 +1285,6 @@ section{position:relative;z-index:1}
       </ul>
       <a href="#contact" class="price-cta price-cta-outline">Contact Sales →</a>
     </div>
-
   </div>
 </section>
 
@@ -1048,43 +1296,21 @@ section{position:relative;z-index:1}
       <h2>What Our Clients Say</h2>
     </div>
     <div class="testimonials-grid">
-
       <div class="testi reveal">
         <div class="testi-quote">"</div>
         <p>FlowGen AI automated our entire WhatsApp lead funnel. We went from manually chasing 50 leads a day to having the AI qualify and route them automatically. Conversions jumped 40%.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RK</div>
-          <div>
-            <p class="testi-name">Rahul Khanna</p>
-            <p class="testi-role">Founder, PropEdge Realty</p>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">RK</div><div><p class="testi-name">Rahul Khanna</p><p class="testi-role">Founder, PropEdge Realty</p></div></div>
       </div>
-
       <div class="testi reveal">
         <div class="testi-quote">"</div>
         <p>Our support team used to spend 6 hours a day answering the same questions. Now the AI chatbot handles 80% of queries instantly. Our team focuses on actual problems.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SM</div>
-          <div>
-            <p class="testi-name">Sneha Mehta</p>
-            <p class="testi-role">Head of Ops, LearnFast Academy</p>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">SM</div><div><p class="testi-name">Sneha Mehta</p><p class="testi-role">Head of Ops, LearnFast Academy</p></div></div>
       </div>
-
       <div class="testi reveal">
         <div class="testi-quote">"</div>
         <p>The voice calling agent books appointments better than any human receptionist we had. Patients love it, and our clinic schedule is always full now.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AP</div>
-          <div>
-            <p class="testi-name">Dr. Arjun Pillai</p>
-            <p class="testi-role">Director, PrimeCare Clinics</p>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">AP</div><div><p class="testi-name">Dr. Arjun Pillai</p><p class="testi-role">Director, PrimeCare Clinics</p></div></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1107,7 +1333,7 @@ section{position:relative;z-index:1}
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="/mnt/user-data/uploads/1777306081356.png" alt="FlowGen AI" onerror="this.style.display='none'">
+          <img src="images/flowgenai.png" alt="FlowGen AI" onerror="this.style.display='none'">
           <span>FlowGen AI</span>
         </div>
         <p>We help businesses automate their manual workflows with intelligent AI agents — so you can focus on growth, not grunt work.</p>
@@ -1157,10 +1383,149 @@ section{position:relative;z-index:1}
   </div>
 </footer>
 
-<!-- FLOATING CTA -->
+<!-- FLOATING WhatsApp CTA -->
 <a href="https://wa.me/919272521022?text=Hi%20FlowGen%20AI!" class="floating-badge" target="_blank">
   💬 Chat with Us
 </a>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FLOWGEN AI CHAT WIDGET — Robot Icon + Premium UI
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Robot SVG used in multiple places (defined once, reused via JS) -->
+<svg style="display:none" id="fg-robot-defs">
+  <symbol id="robot-head" viewBox="0 0 36 36">
+    <!-- Antenna -->
+    <line x1="18" y1="2" x2="18" y2="7" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle class="fg-antenna-dot" cx="18" cy="1.5" r="2.5" fill="#00e5ff"/>
+    <!-- Head body -->
+    <rect x="5" y="7" width="26" height="20" rx="5" fill="url(#rg1)" stroke="rgba(0,229,255,0.6)" stroke-width="1"/>
+    <!-- Eyes -->
+    <g class="fg-eye-l" style="transform-origin:11px 17px">
+      <rect x="8" y="14" width="6" height="6" rx="2" fill="#00e5ff" opacity=".9"/>
+      <rect x="9.5" y="15.5" width="2" height="2" rx=".5" fill="#000" opacity=".7"/>
+    </g>
+    <g class="fg-eye-r" style="transform-origin:25px 17px">
+      <rect x="22" y="14" width="6" height="6" rx="2" fill="#00e5ff" opacity=".9"/>
+      <rect x="23.5" y="15.5" width="2" height="2" rx=".5" fill="#000" opacity=".7"/>
+    </g>
+    <!-- Mouth -->
+    <rect x="12" y="23" width="12" height="2" rx="1" fill="rgba(0,229,255,0.5)"/>
+    <!-- Ear bolts -->
+    <circle cx="5" cy="17" r="2" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="1"/>
+    <circle cx="31" cy="17" r="2" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="1"/>
+    <defs>
+      <linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0a1e3a"/>
+        <stop offset="100%" stop-color="#050f20"/>
+      </linearGradient>
+    </defs>
+  </symbol>
+</svg>
+
+<!-- Toggle Button with Robot Icon -->
+<button id="fg-toggle" aria-label="Open FlowGen AI Chat">
+  <!-- Robot icon (shown when closed) -->
+  <svg class="fg-robot-icon" width="34" height="34" viewBox="0 0 36 36">
+    <!-- Antenna -->
+    <line x1="18" y1="2" x2="18" y2="7" stroke="#00e5ff" stroke-width="1.6" stroke-linecap="round"/>
+    <circle class="fg-antenna-dot" cx="18" cy="1.5" r="2.5" fill="#00e5ff"/>
+    <!-- Head -->
+    <rect x="5" y="7" width="26" height="20" rx="5" fill="#0a1e3a" stroke="rgba(0,229,255,0.65)" stroke-width="1.2"/>
+    <!-- Eyes -->
+    <g class="fg-eye-l" style="transform-origin:11px 17px">
+      <rect x="8" y="14" width="6" height="6" rx="2" fill="#00e5ff"/>
+      <rect x="9.5" y="15.5" width="2" height="2" rx=".5" fill="#000" opacity=".8"/>
+    </g>
+    <g class="fg-eye-r" style="transform-origin:25px 17px">
+      <rect x="22" y="14" width="6" height="6" rx="2" fill="#00e5ff"/>
+      <rect x="23.5" y="15.5" width="2" height="2" rx=".5" fill="#000" opacity=".8"/>
+    </g>
+    <!-- Mouth -->
+    <rect x="12" y="23" width="12" height="2" rx="1" fill="rgba(0,229,255,0.55)"/>
+    <!-- Ear bolts -->
+    <circle cx="5" cy="17" r="2" fill="none" stroke="rgba(0,229,255,0.45)" stroke-width="1"/>
+    <circle cx="31" cy="17" r="2" fill="none" stroke="rgba(0,229,255,0.45)" stroke-width="1"/>
+    <!-- Neck/body hint -->
+    <rect x="14" y="27" width="8" height="5" rx="2" fill="#0a1e3a" stroke="rgba(0,229,255,0.3)" stroke-width="1"/>
+  </svg>
+  <!-- Close X icon (shown when open) -->
+  <svg class="fg-close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2.5" stroke-linecap="round">
+    <line x1="18" y1="6" x2="6" y2="18"/>
+    <line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+  <span class="fg-notif-badge" id="fg-badge">1</span>
+</button>
+
+<!-- Chat Window -->
+<div id="fg-window" role="dialog" aria-label="FlowGen AI Chat Assistant">
+  <!-- Header -->
+  <div class="fg-header">
+    <div class="fg-header-avatar">
+      <svg viewBox="0 0 42 42">
+        <!-- Antenna -->
+        <line x1="21" y1="2" x2="21" y2="8" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+        <circle class="fg-antenna-dot" cx="21" cy="1.5" r="2.8" fill="#00e5ff"/>
+        <!-- Head -->
+        <rect x="5" y="8" width="32" height="24" rx="6" fill="#0a1e3a" stroke="rgba(0,229,255,0.6)" stroke-width="1.2"/>
+        <!-- Eyes -->
+        <g class="fg-eye-l" style="transform-origin:13px 20px">
+          <rect x="9" y="16" width="8" height="7" rx="2.5" fill="#00e5ff" opacity=".95"/>
+          <rect x="11" y="18" width="3" height="3" rx="1" fill="#000" opacity=".7"/>
+        </g>
+        <g class="fg-eye-r" style="transform-origin:29px 20px">
+          <rect x="25" y="16" width="8" height="7" rx="2.5" fill="#00e5ff" opacity=".95"/>
+          <rect x="27" y="18" width="3" height="3" rx="1" fill="#000" opacity=".7"/>
+        </g>
+        <!-- Mouth bar -->
+        <rect x="14" y="27" width="14" height="2.5" rx="1.2" fill="rgba(0,229,255,0.45)"/>
+        <!-- Ear knobs -->
+        <circle cx="5" cy="20" r="2.5" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="1.2"/>
+        <circle cx="37" cy="20" r="2.5" fill="none" stroke="rgba(0,229,255,0.4)" stroke-width="1.2"/>
+        <!-- Neck -->
+        <rect x="17" y="32" width="8" height="6" rx="2" fill="#0a1628" stroke="rgba(0,229,255,0.25)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="fg-header-info">
+      <div class="fg-header-name">FlowGen AI · Assistant</div>
+      <div class="fg-status">
+        <span class="fg-status-dot"></span>
+        Online — replies instantly
+      </div>
+    </div>
+    <div class="fg-header-actions">
+      <button class="fg-action-btn" onclick="fgClear()" title="Clear chat" aria-label="Clear conversation">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.89"/>
+        </svg>
+      </button>
+      <button class="fg-action-btn fg-close-btn" onclick="fgClose()" aria-label="Close chat">✕</button>
+    </div>
+  </div>
+
+  <!-- Suggested prompts -->
+  <div class="fg-suggestions" id="fg-suggestions">
+    <span class="fg-suggestion-chip" onclick="fgUsePrompt(this)">💰 Pricing plans</span>
+    <span class="fg-suggestion-chip" onclick="fgUsePrompt(this)">🤖 WhatsApp bot</span>
+    <span class="fg-suggestion-chip" onclick="fgUsePrompt(this)">📞 Voice agent</span>
+    <span class="fg-suggestion-chip" onclick="fgUsePrompt(this)">🚀 Get started</span>
+  </div>
+
+  <!-- Messages -->
+  <div id="fg-messages"></div>
+
+  <!-- Input row -->
+  <div class="fg-input-row">
+    <textarea id="fg-input" rows="1" placeholder="Ask about automation…" maxlength="500" aria-label="Type your message"></textarea>
+    <button id="fg-send" aria-label="Send message">
+      <svg viewBox="0 0 24 24">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+  <div class="fg-footer-note">Powered by FlowGen AI · flowgenai.online</div>
+</div>
 
 <script>
 // Mobile menu
@@ -1213,335 +1578,266 @@ const statsObserver=new IntersectionObserver((entries)=>{
 },{threshold:0.5});
 const statsSection=document.querySelector('.stats');
 if(statsSection)statsObserver.observe(statsSection);
-</script>
 
-<!-- ===================== FLOWGEN AI CHAT WIDGET ===================== -->
-<style>
-/* ── Config: change API_URL in the script below ── */
+/* ═══════════════════════════════════════════════════════════
+   CHAT WIDGET LOGIC
+   ═══════════════════════════════════════════════════════════
 
-/* Toggle Button */
-#fg-toggle {
-  position:fixed;
-  bottom:90px;
-  right:24px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#0066ff,#00e5ff);
-  border:none;
-  cursor:pointer;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 24px rgba(0,229,255,0.45),0 4px 16px rgba(0,0,0,0.4);
-  transition:transform .2s,box-shadow .2s;
-}
-#fg-toggle:hover{transform:scale(1.1);box-shadow:0 0 36px rgba(0,229,255,0.65),0 4px 20px rgba(0,0,0,0.5)}
-#fg-toggle svg{transition:transform .3s}
-#fg-toggle.open svg.icon-chat{display:none}
-#fg-toggle.open svg.icon-close{display:block !important}
-.fg-badge {
-  position:absolute;
-  top:-4px;right:-4px;
-  width:18px;height:18px;
-  background:#ff3b5c;
-  border-radius:50%;
-  border:2px solid #020c1b;
-  font-size:10px;font-weight:700;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  animation:fgPop .4s ease;
-}
-@keyframes fgPop{from{transform:scale(0)}to{transform:scale(1)}}
+   Backend contract (ChatRequest.java):
+     POST /api/chat/stream   → SSE Flux<StreamChunk>
+     Body: {
+       message   : string   ← field name in ChatRequest
+       sessionId : string   ← required, ties to conversation history
+       provider  : string   ← "openai" | "gemini"  (default "openai")
+     }
 
-/* Chat Window */
-#fg-window {
-  position:fixed;
-  bottom:160px;
-  right:24px;
-  width:360px;
-  max-height:540px;
-  background:#040f20;
-  border:1px solid rgba(0,229,255,0.18);
-  border-radius:16px;
-  display:flex;
-  flex-direction:column;
-  z-index:9998;
-  box-shadow:0 0 40px rgba(0,102,255,0.2),0 20px 60px rgba(0,0,0,0.6);
-  overflow:hidden;
-  transform:scale(0.85) translateY(20px);
-  opacity:0;
-  pointer-events:none;
-  transform-origin:bottom right;
-  transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .25s ease;
-}
-#fg-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+   SSE chunk shape (StreamChunk.java):
+     { type: "token", content: "word", provider, model, sessionId }
+     { type: "done",  provider, model, sessionId }
+     { type: "error", error: "msg", provider, sessionId }
 
-/* Header */
-.fg-header {
-  display:flex;align-items:center;gap:12px;
-  padding:16px 18px;
-  background:linear-gradient(135deg,rgba(0,102,255,0.2),rgba(0,229,255,0.08));
-  border-bottom:1px solid rgba(0,229,255,0.12);
-  flex-shrink:0;
-}
-.fg-avatar {
-  width:38px;height:38px;border-radius:50%;
-  background:linear-gradient(135deg,#0066ff,#00e5ff);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;flex-shrink:0;
-  box-shadow:0 0 12px rgba(0,229,255,0.4);
-}
-.fg-header-info{flex:1;min-width:0}
-.fg-header-name{font-family:'Orbitron',monospace;font-size:.78rem;font-weight:700;color:#fff;letter-spacing:.05em}
-.fg-status{display:flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(0,229,255,0.7);margin-top:2px}
-.fg-dot{width:6px;height:6px;background:#00e676;border-radius:50%;animation:fgPulse 2s infinite}
-@keyframes fgPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.fg-close-btn{background:none;border:none;color:rgba(0,229,255,0.5);cursor:pointer;font-size:1.2rem;padding:4px;transition:color .2s;line-height:1}
-.fg-close-btn:hover{color:var(--neon,#00e5ff)}
+   ═══════════════════════════════════════════════════════════ */
 
-/* Messages */
-#fg-messages {
-  flex:1;
-  overflow-y:auto;
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  scroll-behavior:smooth;
-}
-#fg-messages::-webkit-scrollbar{width:4px}
-#fg-messages::-webkit-scrollbar-track{background:transparent}
-#fg-messages::-webkit-scrollbar-thumb{background:rgba(0,229,255,0.2);border-radius:4px}
+// ── CONFIG ────────────────────────────────────────────────────
+// Point this at your new Render URL once deployed.
+// During local dev: http://localhost:8080
+const FG_BASE_URL = 'https://flowgen-ai-backend-production.up.railway.app';
+const FG_STREAM_URL = FG_BASE_URL + '/api/chat/stream';   // SSE streaming
+const FG_CLEAR_URL  = (sid) => FG_BASE_URL + `/api/chat/${sid}`;  // DELETE
 
-.fg-msg {
-  display:flex;
-  gap:8px;
-  animation:fgMsgIn .3s ease both;
-  max-width:85%;
-}
-@keyframes fgMsgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.fg-msg.user{align-self:flex-end;flex-direction:row-reverse}
+// Provider sent with every message — can be "openai" or "gemini"
+const FG_PROVIDER = 'openai';
 
-.fg-bubble {
-  padding:10px 14px;
-  border-radius:14px;
-  font-size:.875rem;
-  line-height:1.6;
-  word-break:break-word;
+// ── SESSION ID ────────────────────────────────────────────────
+// A stable UUID per browser session. Ties all messages to the
+// same conversation history slot on the backend (ConcurrentHashMap).
+function fgGetSessionId(){
+  let sid = sessionStorage.getItem('fg_session_id');
+  if(!sid){
+    // crypto.randomUUID() available in all modern browsers
+    sid = (crypto.randomUUID ? crypto.randomUUID()
+           : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+               const r = Math.random()*16|0;
+               return (c==='x'?r:(r&0x3|0x8)).toString(16);
+             }));
+    sessionStorage.setItem('fg_session_id', sid);
+  }
+  return sid;
 }
-.fg-msg.bot .fg-bubble {
-  background:rgba(0,229,255,0.07);
-  border:1px solid rgba(0,229,255,0.15);
-  color:#c8e6f5;
-  border-radius:4px 14px 14px 14px;
-}
-.fg-msg.user .fg-bubble {
-  background:linear-gradient(135deg,#0066ff,#0099ff);
-  color:#fff;
-  border-radius:14px 4px 14px 14px;
-}
-.fg-msg-avatar {
-  width:28px;height:28px;border-radius:50%;
-  background:linear-gradient(135deg,#0066ff,#00e5ff);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.75rem;flex-shrink:0;margin-top:2px;
-}
-.fg-msg.user .fg-msg-avatar{background:rgba(0,229,255,0.15);border:1px solid rgba(0,229,255,0.2)}
+const FG_SESSION_ID = fgGetSessionId();
+// ─────────────────────────────────────────────────────────────
 
-/* Typing indicator */
-.fg-typing .fg-bubble {
-  display:flex;align-items:center;gap:5px;
-  padding:12px 16px;
-}
-.fg-dot-anim {
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(0,229,255,0.6);
-  animation:fgBounce 1.2s infinite ease-in-out;
-}
-.fg-dot-anim:nth-child(2){animation-delay:.2s}
-.fg-dot-anim:nth-child(3){animation-delay:.4s}
-@keyframes fgBounce{0%,80%,100%{transform:scale(.7);opacity:.5}40%{transform:scale(1);opacity:1}}
-
-/* Input */
-.fg-input-row {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:12px 14px;
-  border-top:1px solid rgba(0,229,255,0.12);
-  background:rgba(2,12,27,0.6);
-  flex-shrink:0;
-}
-#fg-input {
-  flex:1;
-  background:rgba(0,229,255,0.05);
-  border:1px solid rgba(0,229,255,0.15);
-  border-radius:8px;
-  padding:10px 14px;
-  color:#c8e6f5;
-  font-family:'Exo 2',sans-serif;
-  font-size:.875rem;
-  outline:none;
-  transition:border-color .2s;
-  resize:none;
-  max-height:100px;
-}
-#fg-input::placeholder{color:rgba(200,230,245,0.35)}
-#fg-input:focus{border-color:rgba(0,229,255,0.45)}
-#fg-send {
-  width:38px;height:38px;border-radius:8px;
-  background:linear-gradient(135deg,#0066ff,#00e5ff);
-  border:none;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  transition:box-shadow .2s,transform .2s,opacity .2s;
-}
-#fg-send:hover{box-shadow:0 0 16px rgba(0,229,255,0.5);transform:scale(1.05)}
-#fg-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
-#fg-send svg{width:16px;height:16px;fill:none;stroke:#000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-.fg-footer-note{text-align:center;font-size:.68rem;color:rgba(200,230,245,0.25);padding:0 14px 10px;flex-shrink:0}
-
-/* Mobile */
-@media(max-width:420px){
-  #fg-window{right:12px;left:12px;width:auto;bottom:150px}
-  #fg-toggle{right:16px;bottom:84px}
-}
-</style>
-
-<!-- Chat HTML -->
-<button id="fg-toggle" aria-label="Open chat" title="Chat with FlowGen AI">
-  <svg class="icon-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>
-  <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" style="display:none">
-    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-  </svg>
-  <span class="fg-badge" id="fg-badge">1</span>
-</button>
-
-<div id="fg-window" role="dialog" aria-label="FlowGen AI Chat">
-  <div class="fg-header">
-    <div class="fg-avatar">🤖</div>
-    <div class="fg-header-info">
-      <div class="fg-header-name">FlowGen AI Assistant</div>
-      <div class="fg-status"><span class="fg-dot"></span> Online — typically replies instantly</div>
-    </div>
-    <button class="fg-close-btn" onclick="fgClose()" aria-label="Close chat">✕</button>
-  </div>
-
-  <div id="fg-messages">
-    <!-- Welcome message injected by JS -->
-  </div>
-
-  <div class="fg-input-row">
-    <textarea id="fg-input" rows="1" placeholder="Ask me anything about automation…" maxlength="500"></textarea>
-    <button id="fg-send" aria-label="Send message">
-      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </button>
-  </div>
-  <div class="fg-footer-note">Powered by FlowGen AI · flowgenai.online</div>
-</div>
-
-<script>
-// ─── CONFIG — change this to your Spring Boot base URL ───────────────
-const FG_API_URL = 'https://flowgen-ai-backend-production.up.railway.app/api/chat';
-// ─────────────────────────────────────────────────────────────────────
-
-const fgToggle   = document.getElementById('fg-toggle');
-const fgWindow   = document.getElementById('fg-window');
-const fgMessages = document.getElementById('fg-messages');
-const fgInput    = document.getElementById('fg-input');
-const fgSendBtn  = document.getElementById('fg-send');
-const fgBadge    = document.getElementById('fg-badge');
+const fgToggleBtn = document.getElementById('fg-toggle');
+const fgWindow    = document.getElementById('fg-window');
+const fgMessages  = document.getElementById('fg-messages');
+const fgInput     = document.getElementById('fg-input');
+const fgSendBtn   = document.getElementById('fg-send');
+const fgBadge     = document.getElementById('fg-badge');
+const fgSugg      = document.getElementById('fg-suggestions');
 
 let fgOpen = false;
 let fgTypingEl = null;
 
-// Welcome message
-const WELCOME = "👋 Hi! I'm FlowGen AI's assistant. I can help you understand our automation services, pricing, or get you started. What would you like to know?";
-fgAddMsg('bot', WELCOME);
+// Time helper
+function fgNow(){
+  return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+}
+
+// Inject welcome message
+fgAddMsg('bot', "👋 Hi! I'm FlowGen AI's assistant. How can I help you automate your business today?");
 
 // Toggle
-fgToggle.addEventListener('click', () => fgOpen ? fgClose() : fgOpenChat());
+fgToggleBtn.addEventListener('click', () => fgOpen ? fgClose() : fgOpenChat());
 
-function fgOpenChat() {
+function fgOpenChat(){
   fgOpen = true;
   fgWindow.classList.add('open');
-  fgToggle.classList.add('open');
+  fgToggleBtn.classList.add('open');
   fgBadge.style.display = 'none';
-  setTimeout(() => fgInput.focus(), 300);
+  setTimeout(() => fgInput.focus(), 350);
 }
 
-function fgClose() {
+function fgClose(){
   fgOpen = false;
   fgWindow.classList.remove('open');
-  fgToggle.classList.remove('open');
+  fgToggleBtn.classList.remove('open');
 }
 
-// Send on Enter (Shift+Enter = newline)
+function fgClear(){
+  // Clear backend conversation history for this session
+  fetch(FG_CLEAR_URL(FG_SESSION_ID), { method:'DELETE' }).catch(()=>{});
+  fgMessages.innerHTML='';
+  fgAddMsg('bot',"Chat cleared! Ask me anything about FlowGen AI automation.");
+  fgSugg.style.display='flex';
+}
+
+// Suggestion chips
+function fgUsePrompt(el){
+  fgInput.value = el.textContent;
+  fgSugg.style.display='none';
+  fgSend();
+}
+
+// Send on Enter
 fgInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); fgSend(); }
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); fgSend(); }
 });
 
 // Auto-resize textarea
 fgInput.addEventListener('input', () => {
-  fgInput.style.height = 'auto';
-  fgInput.style.height = Math.min(fgInput.scrollHeight, 100) + 'px';
+  fgInput.style.height='auto';
+  fgInput.style.height=Math.min(fgInput.scrollHeight,100)+'px';
 });
 
 fgSendBtn.addEventListener('click', fgSend);
 
-async function fgSend() {
+async function fgSend(){
   const text = fgInput.value.trim();
-  if (!text || fgSendBtn.disabled) return;
+  if(!text || fgSendBtn.disabled) return;
 
+  fgSugg.style.display='none';
   fgAddMsg('user', text);
-  fgInput.value = '';
-  fgInput.style.height = 'auto';
-  fgSendBtn.disabled = true;
-
+  fgInput.value='';
+  fgInput.style.height='auto';
+  fgSendBtn.disabled=true;
   fgShowTyping();
 
-  try {
-    const res = await fetch(FG_API_URL, {
+  try{
+    // ── POST to /api/chat/stream with correct ChatRequest body ──
+    // Backend fields: message (NOT userInput), sessionId, provider
+    const res = await fetch(FG_STREAM_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-      userInput: text
+        message:   text,           // ← ChatRequest.message
+        sessionId: FG_SESSION_ID,  // ← ChatRequest.sessionId (required!)
+        provider:  FG_PROVIDER     // ← ChatRequest.provider ("openai"|"gemini")
       })
     });
 
-    if (!res.ok) throw new Error(`Server error: ${res.status}`);
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    const data = await res.json();
-    const reply = data.reply || data.message || data.response || 'Sorry, I could not understand the response.';
+    // ── Read SSE stream word-by-word ──────────────────────────
+    // Backend returns text/event-stream; each line is:
+    //   data: {"type":"token","content":"word",...}
+    //   data: {"type":"done",...}
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let botBubble = null;   // the DOM bubble we'll append tokens into
+    let fullText = '';
 
+    fgRemoveTyping();  // remove dots now that stream started
+
+    while(true){
+      const { done, value } = await reader.read();
+      if(done) break;
+
+      const raw = decoder.decode(value, { stream: true });
+
+      // SSE lines arrive as "data: {...}\n\n" — split and parse each
+      const lines = raw.split('\n');
+      for(const line of lines){
+        if(!line.startsWith('data:')) continue;
+        const jsonStr = line.slice(5).trim();
+        if(!jsonStr) continue;
+
+        let chunk;
+        try{ chunk = JSON.parse(jsonStr); }
+        catch{ continue; }
+
+        if(chunk.type === 'token' && chunk.content){
+          fullText += chunk.content;
+          if(!botBubble){
+            // Create the bot bubble on first token
+            botBubble = fgCreateStreamBubble();
+          }
+          botBubble.textContent = fullText;
+          fgScrollBottom();
+        }
+        else if(chunk.type === 'done'){
+          // Stream finished cleanly
+          break;
+        }
+        else if(chunk.type === 'error'){
+          fgAddMsg('bot', '⚠️ ' + (chunk.error || 'Something went wrong.'));
+        }
+      }
+    }
+
+    // Fallback: if stream produced nothing, show a default message
+    if(!fullText && !botBubble){
+      fgAddMsg('bot', 'Sorry, I received an empty response. Please try again.');
+    }
+
+  }catch(err){
     fgRemoveTyping();
-    fgAddMsg('bot', reply);
-
-  } catch (err) {
-    fgRemoveTyping();
-    fgAddMsg('bot', '⚠️ Could not reach the server. Please check your connection or try again shortly.');
+    fgAddMsg('bot','⚠️ Could not reach the server. Please try again or chat with us on WhatsApp!');
     console.error('[FlowGen Chat]', err);
-  } finally {
-    fgSendBtn.disabled = false;
+  }finally{
+    fgSendBtn.disabled=false;
     fgInput.focus();
   }
 }
 
-function fgAddMsg(role, text) {
+/**
+ * Creates an empty bot message bubble in the DOM and returns
+ * the inner bubble element so tokens can be appended into it.
+ */
+function fgCreateStreamBubble(){
   const wrap = document.createElement('div');
-  wrap.className = `fg-msg ${role}`;
+  wrap.className = 'fg-msg bot';
 
   const avatar = document.createElement('div');
   avatar.className = 'fg-msg-avatar';
-  avatar.textContent = role === 'bot' ? '🤖' : '👤';
+  avatar.innerHTML = `<svg viewBox="0 0 36 36" width="18" height="18">
+    <line x1="18" y1="1" x2="18" y2="6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="18" cy="1" r="2" fill="#00e5ff" opacity=".8"/>
+    <rect x="5" y="6" width="26" height="20" rx="5" fill="#0a1e3a" stroke="rgba(0,229,255,0.5)" stroke-width="1"/>
+    <rect x="8" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+    <rect x="22.5" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+    <rect x="12" y="22" width="12" height="2" rx="1" fill="rgba(0,229,255,0.4)"/>
+  </svg>`;
 
   const bubble = document.createElement('div');
   bubble.className = 'fg-bubble';
-  bubble.textContent = text;
+  bubble.textContent = '';
+
+  wrap.appendChild(avatar);
+  wrap.appendChild(bubble);
+  fgMessages.appendChild(wrap);
+  fgScrollBottom();
+  return bubble;  // caller appends tokens here
+}
+
+function fgAddMsg(role, text){
+  const wrap = document.createElement('div');
+  wrap.className=`fg-msg ${role}`;
+
+  const avatar = document.createElement('div');
+  avatar.className='fg-msg-avatar';
+
+  if(role==='bot'){
+    // Mini robot SVG avatar
+    avatar.innerHTML=`<svg viewBox="0 0 36 36" width="18" height="18">
+      <line x1="18" y1="1" x2="18" y2="6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="18" cy="1" r="2" fill="#00e5ff" opacity=".8"/>
+      <rect x="5" y="6" width="26" height="20" rx="5" fill="#0a1e3a" stroke="rgba(0,229,255,0.5)" stroke-width="1"/>
+      <rect x="8" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+      <rect x="22.5" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+      <rect x="12" y="22" width="12" height="2" rx="1" fill="rgba(0,229,255,0.4)"/>
+    </svg>`;
+  } else {
+    avatar.textContent='👤';
+    avatar.style.fontSize='.8rem';
+  }
+
+  const bubble=document.createElement('div');
+  bubble.className='fg-bubble';
+  bubble.textContent=text;
+
+  const ts=document.createElement('div');
+  ts.className='fg-timestamp';
+  ts.textContent=fgNow();
 
   wrap.appendChild(avatar);
   wrap.appendChild(bubble);
@@ -1549,11 +1845,20 @@ function fgAddMsg(role, text) {
   fgScrollBottom();
 }
 
-function fgShowTyping() {
-  fgTypingEl = document.createElement('div');
-  fgTypingEl.className = 'fg-msg bot fg-typing';
-  fgTypingEl.innerHTML = `
-    <div class="fg-msg-avatar">🤖</div>
+function fgShowTyping(){
+  fgTypingEl=document.createElement('div');
+  fgTypingEl.className='fg-msg bot fg-typing';
+  fgTypingEl.innerHTML=`
+    <div class="fg-msg-avatar">
+      <svg viewBox="0 0 36 36" width="18" height="18">
+        <line x1="18" y1="1" x2="18" y2="6" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="18" cy="1" r="2" fill="#00e5ff" opacity=".8"/>
+        <rect x="5" y="6" width="26" height="20" rx="5" fill="#0a1e3a" stroke="rgba(0,229,255,0.5)" stroke-width="1"/>
+        <rect x="8" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+        <rect x="22.5" y="13" width="5.5" height="5.5" rx="1.8" fill="#00e5ff" opacity=".9"/>
+        <rect x="12" y="22" width="12" height="2" rx="1" fill="rgba(0,229,255,0.4)"/>
+      </svg>
+    </div>
     <div class="fg-bubble">
       <span class="fg-dot-anim"></span>
       <span class="fg-dot-anim"></span>
@@ -1563,12 +1868,13 @@ function fgShowTyping() {
   fgScrollBottom();
 }
 
-function fgRemoveTyping() {
-  if (fgTypingEl) { fgTypingEl.remove(); fgTypingEl = null; }
+function fgRemoveTyping(){
+  if(fgTypingEl){fgTypingEl.remove();fgTypingEl=null;}
 }
 
-function fgScrollBottom() {
-  fgMessages.scrollTop = fgMessages.scrollHeight;
+function fgScrollBottom(){
+  fgMessages.scrollTop=fgMessages.scrollHeight;
 }
 </script>
-<!-- ================== END CHAT WIDGET ================== -->
+</body>
+</html>
